@@ -148,9 +148,37 @@ work.display = function() {
 		$(".work-entry:last").append(formattedWorkLocation);
 		$(".work-entry:last").append(formattedWorkDescription);
 	}
-}
+};
 
+var projects = {
+	"projects": [
+		{
+			"title": "Sample Project 1",
+			"dates": "2014",
+			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese.",
+			"images": ["http://placehold.it/300x200", "http://placehold.it/300x200"]
+		}
+	]
+};
+
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedProjectTitle);
+		$(".project-entry:last").append(formattedProjectDates);
+		$(".project-entry:last").append(formattedProjectDescription);
+
+		for (image in projects.projects[project].images) {
+			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+			$(".project-entry:last").append(formattedProjectImage);
+		}
+	}
+};
 
 bio.display();
 work.display();
+projects.display();
 education.display();
