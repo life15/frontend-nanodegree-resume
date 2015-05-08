@@ -114,6 +114,43 @@ education.display = function() {
 	}
 };
 
+var work = {
+	"jobs": [
+		{
+			"employer": "Planet Express",
+			"title": "Delivery Boy",
+			"location": "Brooklyn, NY",
+			"dates": "January 3000 - Future",
+			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese."
+		},
+		{
+			"employer": "Panuocis Pizza",
+			"title": "Delivery Boy",
+			"location": "Manhattan, NY",
+			"dates": "1998 - December 31, 1999",
+			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese."
+		},
+	]
+};
+
+work.display = function() {
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedWorkEmployerAndTitle = formattedWorkEmployer + formattedWorkTitle;
+		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+		$(".work-entry:last").append(formattedWorkEmployerAndTitle);
+		$(".work-entry:last").append(formattedWorkDates);
+		$(".work-entry:last").append(formattedWorkLocation);
+		$(".work-entry:last").append(formattedWorkDescription);
+	}
+}
+
 
 bio.display();
+work.display();
 education.display();
