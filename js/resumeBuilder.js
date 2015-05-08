@@ -26,11 +26,12 @@ bio.display = function() {
 	$("#header").prepend(formattedHeaderRole);
 	$("#header").prepend(formattedHeaderName);
 
-	// header contacts
+	// header and footer contacts
 	for (contact in bio.contacts) {
 		var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", contact);
 		formattedContactGeneric = formattedContactGeneric.replace("%data%", bio.contacts[contact]);
 		$("#topContacts").append(formattedContactGeneric);
+		$("#footerContacts").append(formattedContactGeneric);
 	};
 
 	// bio picture
