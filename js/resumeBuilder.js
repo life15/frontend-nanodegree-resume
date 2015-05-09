@@ -1,3 +1,4 @@
+// bio information
 var bio = {
 	"name": "Tony Stark",
 	"role": "Iron Man",
@@ -54,6 +55,7 @@ bio.display = function() {
 	$("#main").append(internationalizeButton);
 };
 
+// education information
 var education = {
 	"schools": [
 		{
@@ -119,6 +121,7 @@ education.display = function() {
 	}
 };
 
+// work information
 var work = {
 	"jobs": [
 		{
@@ -155,6 +158,7 @@ work.display = function() {
 	}
 };
 
+// projects information
 var projects = {
 	"projects": [
 		{
@@ -189,11 +193,13 @@ projects.display = function() {
 	}
 };
 
+// google map div
 var map = new Object();
 map.display = function() {
 	$("#mapDiv").append(googleMap);
 };
 
+// build the resume page
 bio.display();
 work.display();
 projects.display();
