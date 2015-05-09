@@ -48,6 +48,9 @@ bio.display = function() {
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 		$("#skills").append(formattedSkill);
 	}
+
+	// internationalize names
+	$("#main").append(internationalizeButton);
 };
 
 var education = {
