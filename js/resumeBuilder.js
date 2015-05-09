@@ -53,7 +53,7 @@ bio.display = function() {
 
 	// internationalize names
 	$("#main").append(internationalizeButton);
-};
+}
 
 // education information
 var education = {
@@ -119,7 +119,7 @@ education.display = function() {
 		$(".education-entry:last").append(formattedOnlineDates);
 		$(".education-entry:last").append(formattedOnlineURL);
 	}
-};
+}
 
 // work information
 var work = {
@@ -156,7 +156,7 @@ work.display = function() {
 		$(".work-entry:last").append(formattedWorkLocation);
 		$(".work-entry:last").append(formattedWorkDescription);
 	}
-};
+}
 
 // projects information
 var projects = {

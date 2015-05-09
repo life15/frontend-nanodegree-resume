@@ -74,7 +74,7 @@ $(document).ready(function() {
     var iName = inName(bio.name) || function(){};
     $('#name').html(iName);
   });
-});
+})
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
