@@ -1,22 +1,23 @@
 var bio = {
-	"name": "John Doe",
-	"role": "Web Developer",
-	"welcomeMessage": "hello world!",
+	"name": "Tony Stark",
+	"role": "Iron Man",
+	"welcomeMessage": "I just finally know what I have to do.",
 	"skills": [
-		"awesomeness",
-		"delivering things",
-		"cryogenic sleep",
-		"saving the universe"
+		"Business Management",
+		"Weapons Specialist",
+		"Armor Specialist",
+		"AI Specialist",
+		"Saving the Universe"
 	],
-	"biopic": "http://placehold.it/350x350"
+	"biopic": "images/biopic.jpeg"
 };
 
 bio.contacts = 	{
 	"mobile": "650-555-5555",
-	"email": "john@example.com",
-	"github": "johndoe",
-	"twitter": "@johndoe",
-	"location": "San Francisco"
+	"email": "tony@stark.com",
+	"github": "tonystark",
+	"twitter": "@tonystark",
+	"location": "New York"
 };
 
 bio.display = function() {
@@ -56,28 +57,28 @@ bio.display = function() {
 var education = {
 	"schools": [
 		{
-			"name": "Nova Southeastern University",
-			"location": "Fort Lauderdale, FL",
+			"name": "Massachusetts Institute of Technology",
+			"location": "Cambridge, MA",
 			"degree": "Masters",
-			"majors": ["CS"],
-			"dates": 2013,
-			"url": "http://www.nova.edu/index.html"
+			"majors": ["EE", "CS"],
+			"dates": 1992,
+			"url": "http://web.mit.edu/"
 		},
 		{
-			"name": "Eckerd College",
-			"location": "Saint Petersburg, FL",
+			"name": "Massachusetts Institute of Technology",
+			"location": "Cambridge, MA",
 			"degree": "BA",
-			"majors": ["CS"],
-			"dates": 2003,
-			"url": "http://www.eckerd.edu/"
+			"majors": ["EE", "CS"],
+			"dates": 1990,
+			"url": "http://web.mit.edu/"
 		}
 	],
 	"onlineCourses": [
 		{
-			"title": "Javascript Crash Course",
-			"school": "Udacity",
+			"title": "Artificial Intelligence Course",
+			"school": "MIT",
 			"date": 2014,
-			"url": "http://www.udacity.com/course/ud804"
+			"url": "https://www.csail.mit.edu/"
 		}
 	]
 };
@@ -121,18 +122,18 @@ education.display = function() {
 var work = {
 	"jobs": [
 		{
-			"employer": "Planet Express",
-			"title": "Delivery Boy",
-			"location": "Brooklyn, NY",
-			"dates": "January 3000 - Future",
-			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese."
+			"employer": "Stark Industries",
+			"title": "Chairman and CEO",
+			"location": "Long Island, NY",
+			"dates": "1994 - 2013",
+			"description": "Tony’s parents die in a car crash on December 17th, 1991. His father’s good friend Obadiah Stane takes control of Stark Industries until Tony turns 21 and inherits the company. As the CEO and brilliant mind behind Stark Industries, billionaire Tony Stark quickly becomes famous for his smarter weapons and improved satellite technology, going beyond his father’s work. He also becomes infamous for his tendencies to party, drink, and charm women into his bed."
 		},
 		{
-			"employer": "Panuocis Pizza",
-			"title": "Delivery Boy",
+			"employer": "Stark Industries",
+			"title": "Founder and former CEO",
 			"location": "Manhattan, NY",
-			"dates": "1998 - December 31, 1999",
-			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese."
+			"dates": "2014 - Future",
+			"description": "After the fall of S.H.I.E.L.D. Stark Industries turned its attention to privatizing global security. To this goal, Tony spent some time acting as the official financial backer of the Avengers in the absence of S.H.I.E.L.D.."
 		}
 	]
 };
@@ -157,10 +158,16 @@ work.display = function() {
 var projects = {
 	"projects": [
 		{
-			"title": "Sample Project 1",
-			"dates": "2014",
-			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese.",
-			"images": ["http://placehold.it/300x200", "http://placehold.it/300x200"]
+			"title": "Iron Man Mark I",
+			"dates": "2008",
+			"description": "The Mark I (1), was the first Iron Man suit built and created by Tony Stark. It was built in the initial events of the live-action film, Iron Man. The suit was later used as a model for Obadiah Stane's Iron Monger.",
+			"images": ["images/mark1_1.jpg", "images/mark1_2.jpg"]
+		},
+		{
+			"title": "Iron Man Mark III",
+			"dates": "2013",
+			"description": "The Mark III (3), was the third suit created by Tony Stark and was the main suit Tony used in the movie and in the game. After initial flight tests were completed on the Mark II, Tony built the Mark III.",
+			"images": ["images/mark3_1.jpg", "images/mark3_2.jpg", "images/mark3_3.jpg"]
 		}
 	]
 };
