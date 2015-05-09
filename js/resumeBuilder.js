@@ -8,7 +8,7 @@ var bio = {
 		"cryogenic sleep",
 		"saving the universe"
 	],
-	"biopic": "http://placehold.it/350x350", //find a picture url
+	"biopic": "http://placehold.it/350x350"
 };
 
 bio.contacts = 	{
@@ -130,7 +130,7 @@ var work = {
 			"location": "Manhattan, NY",
 			"dates": "1998 - December 31, 1999",
 			"description": "Hard cheese parmesan stilton. Macaroni cheese when the cheese comes out everybody’s happy edam pecorino when the cheese comes out everybody’s happy cow caerphilly chalk and cheese."
-		},
+		}
 	]
 };
 
