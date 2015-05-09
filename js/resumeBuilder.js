@@ -179,7 +179,13 @@ projects.display = function() {
 	}
 };
 
+var map;
+map.display = function() {
+	$("#mapDiv").append(googleMap);
+};
+
 bio.display();
 work.display();
 projects.display();
 education.display();
+map.display();
