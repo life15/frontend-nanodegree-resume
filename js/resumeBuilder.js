@@ -179,7 +179,7 @@ projects.display = function() {
 	}
 };
 
-var map;
+var map = new Object();
 map.display = function() {
 	$("#mapDiv").append(googleMap);
 };
