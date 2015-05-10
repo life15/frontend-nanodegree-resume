@@ -10,50 +10,49 @@ var bio = {
 		"AI Specialist",
 		"Saving the Universe"
 	],
-	"biopic": "images/biopic.jpeg"
-};
+	"biopic": "images/biopic.jpeg",
+	"contacts": {
+		"mobile": "650-555-5555",
+		"email": "tony@stark.com",
+		"github": "tonystark",
+		"twitter": "@tonystark",
+		"location": "New York"
+	},
+	"display": function() {
+		// header name and role
+		var formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
+		$("#header").prepend(formattedHeaderRole);
+		$("#header").prepend(formattedHeaderName);
 
-bio.contacts = 	{
-	"mobile": "650-555-5555",
-	"email": "tony@stark.com",
-	"github": "tonystark",
-	"twitter": "@tonystark",
-	"location": "New York"
-};
+		// header and footer contacts
+		for (contact in bio.contacts) {
+			var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", contact);
+			formattedContactGeneric = formattedContactGeneric.replace("%data%", bio.contacts[contact]);
+			$("#topContacts").append(formattedContactGeneric);
+			$("#footerContacts").append(formattedContactGeneric);
+		};
 
-bio.display = function() {
-	// header name and role
-	var formattedHeaderName = HTMLheaderName.replace("%data%", bio.name);
-	var formattedHeaderRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").prepend(formattedHeaderRole);
-	$("#header").prepend(formattedHeaderName);
+		// bio picture
+		var  formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+		$("#header").append(formattedBioPic);
 
-	// header and footer contacts
-	for (contact in bio.contacts) {
-		var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%", contact);
-		formattedContactGeneric = formattedContactGeneric.replace("%data%", bio.contacts[contact]);
-		$("#topContacts").append(formattedContactGeneric);
-		$("#footerContacts").append(formattedContactGeneric);
-	};
+		// welcome message
+		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$("#header").append(formattedWelcomeMsg);
 
-	// bio picture
-	var  formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-	$("#header").append(formattedBioPic);
+		// skills
+		$("#header").append(HTMLskillsStart);
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			$("#skills").append(formattedSkill);
+		}
 
-	// welcome message
-	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-	$("#header").append(formattedWelcomeMsg);
-
-	// skills
-	$("#header").append(HTMLskillsStart);
-	for (skill in bio.skills) {
-		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-		$("#skills").append(formattedSkill);
+		// internationalize names
+		$("#main").append(internationalizeButton);
 	}
+};
 
-	// internationalize names
-	$("#main").append(internationalizeButton);
-}
 
 // education information
 var education = {
@@ -82,44 +81,43 @@ var education = {
 			"date": 2014,
 			"url": "https://www.csail.mit.edu/"
 		}
-	]
-};
+	],
+	"display": function() {
+		// schools
+		for (school in education.schools) {
+			$("#education").append(HTMLschoolStart);
+			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+			formattedSchoolName = formattedSchoolName.replace("#", education.schools[school].url);
+			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+			var formattedSchoolNameAndDegress = formattedSchoolName + formattedSchoolDegree
+			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location)
+			$(".education-entry:last").append(formattedSchoolNameAndDegress);
+			$(".education-entry:last").append(formattedSchoolLocation);
+			$(".education-entry:last").append(formattedSchoolDates);
 
-education.display = function() {
-	// schools
-	for (school in education.schools) {
-		$("#education").append(HTMLschoolStart);
-		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		formattedSchoolName = formattedSchoolName.replace("#", education.schools[school].url);
-		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-		var formattedSchoolNameAndDegress = formattedSchoolName + formattedSchoolDegree
-		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
-		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location)
-		$(".education-entry:last").append(formattedSchoolNameAndDegress);
-		$(".education-entry:last").append(formattedSchoolLocation);
-		$(".education-entry:last").append(formattedSchoolDates);
+			for (major in education.schools[school].majors) {
+				var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
+				$(".education-entry:last").append(formattedSchoolMajor);
+			}
+		}
 
-		for (major in education.schools[school].majors) {
-			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors[major]);
-			$(".education-entry:last").append(formattedSchoolMajor);
+		// online courses
+		$("#education").append(HTMLonlineClasses);
+		for (onlineCourse in education.onlineCourses) {
+			var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
+			formattedOnlineTitle = formattedOnlineTitle.replace("#", education.onlineCourses[onlineCourse].url)
+			var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
+			var formattedOnlineTitleAndSchool = formattedOnlineTitle + formattedOnlineSchool;
+			var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].date);
+			var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
+			$("#education").append(HTMLschoolStart);
+			$(".education-entry:last").append(formattedOnlineTitleAndSchool);
+			$(".education-entry:last").append(formattedOnlineDates);
+			$(".education-entry:last").append(formattedOnlineURL);
 		}
 	}
-
-	// online courses
-	$("#education").append(HTMLonlineClasses);
-	for (onlineCourse in education.onlineCourses) {
-		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse].title);
-		formattedOnlineTitle = formattedOnlineTitle.replace("#", education.onlineCourses[onlineCourse].url)
-		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse].school);
-		var formattedOnlineTitleAndSchool = formattedOnlineTitle + formattedOnlineSchool;
-		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse].date);
-		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse].url);
-		$("#education").append(HTMLschoolStart);
-		$(".education-entry:last").append(formattedOnlineTitleAndSchool);
-		$(".education-entry:last").append(formattedOnlineDates);
-		$(".education-entry:last").append(formattedOnlineURL);
-	}
-}
+};
 
 // work information
 var work = {
@@ -138,25 +136,24 @@ var work = {
 			"dates": "2014 - Future",
 			"description": "After the fall of S.H.I.E.L.D. Stark Industries turned its attention to privatizing global security. To this goal, Tony spent some time acting as the official financial backer of the Avengers in the absence of S.H.I.E.L.D.."
 		}
-	]
-};
+	],
+	"display": function() {
+		for (job in work.jobs) {
+			$("#workExperience").append(HTMLworkStart);
+			var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			var formattedWorkEmployerAndTitle = formattedWorkEmployer + formattedWorkTitle;
+			var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-work.display = function() {
-	for (job in work.jobs) {
-		$("#workExperience").append(HTMLworkStart);
-		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var formattedWorkEmployerAndTitle = formattedWorkEmployer + formattedWorkTitle;
-		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-
-		$(".work-entry:last").append(formattedWorkEmployerAndTitle);
-		$(".work-entry:last").append(formattedWorkDates);
-		$(".work-entry:last").append(formattedWorkLocation);
-		$(".work-entry:last").append(formattedWorkDescription);
+			$(".work-entry:last").append(formattedWorkEmployerAndTitle);
+			$(".work-entry:last").append(formattedWorkDates);
+			$(".work-entry:last").append(formattedWorkLocation);
+			$(".work-entry:last").append(formattedWorkDescription);
+		}
 	}
-}
+};
 
 // projects information
 var projects = {
@@ -173,31 +170,32 @@ var projects = {
 			"description": "The Mark III (3), was the third suit created by Tony Stark and was the main suit Tony used in the movie and in the game. After initial flight tests were completed on the Mark II, Tony built the Mark III.",
 			"images": ["images/mark3_1.jpg", "images/mark3_2.jpg", "images/mark3_3.jpg"]
 		}
-	]
-};
+	],
+	"display": function() {
+		for (project in projects.projects) {
+			$("#projects").append(HTMLprojectStart);
+			var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+			var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+			$(".project-entry:last").append(formattedProjectTitle);
+			$(".project-entry:last").append(formattedProjectDates);
+			$(".project-entry:last").append(formattedProjectDescription);
 
-projects.display = function() {
-	for (project in projects.projects) {
-		$("#projects").append(HTMLprojectStart);
-		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		$(".project-entry:last").append(formattedProjectTitle);
-		$(".project-entry:last").append(formattedProjectDates);
-		$(".project-entry:last").append(formattedProjectDescription);
-
-		for (image in projects.projects[project].images) {
-			var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-			$(".project-entry:last").append(formattedProjectImage);
+			for (image in projects.projects[project].images) {
+				var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedProjectImage);
+			}
 		}
 	}
 };
 
+
 // google map div
-var map = new Object();
-map.display = function() {
-	$("#mapDiv").append(googleMap);
-};
+var map = {
+	"display": function() {
+		$("#mapDiv").append(googleMap);
+	}
+}
 
 // build the resume page
 bio.display();
